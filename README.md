@@ -11,8 +11,4 @@ I will host a web server with a UI that allows me to:
 
 Files this project requires:
 
-- A python server start script (start.sh)
-- A python script to run on a schedule (lambda_runner.py)
-- A UI to upload files and run scripts 
-- A UI to view logs
-- A UI to view the status of the server
+- A python server that handles these requests.
