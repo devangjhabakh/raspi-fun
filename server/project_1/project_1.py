@@ -1,7 +1,7 @@
 import os
-from flask import Flask, json, request
+from ..utils.server import app, request
+import json
 
-app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads')
 
 def load_cron_file():
@@ -75,4 +75,8 @@ def list_files():
         return 'Method not allowed'
 
 if __name__ == '__main__':
+    # Create uploads folder if it doesn't exist
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
+
     app.run(host='0.0.0.0', port=8000)
